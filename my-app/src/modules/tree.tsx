@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tree } from 'antd';
+import { Tree, TreeProps } from 'antd';
 
 const treeData = [
     {
@@ -59,9 +59,9 @@ const TreeControls = () => {
         setAutoExpandParent(false);
     };
 
-    const onCheck = (checkedKeysValue: React.Key[]) => {
+    const onCheck: TreeProps['onCheck'] = (checkedKeysValue) => {
         console.log('onCheck', checkedKeysValue);
-        setCheckedKeys(checkedKeysValue);
+        setCheckedKeys(checkedKeysValue as React.Key[]);
     };
 
     const onSelect = (selectedKeysValue: React.Key[], info: any) => {
